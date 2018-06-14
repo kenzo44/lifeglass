@@ -15,9 +15,11 @@ class MenuViewController: NSViewController {
     @IBOutlet weak var birthdayText: NSTextField!
     @IBOutlet weak var labelingButton: NSButton!
     @IBOutlet weak var launchstartButton: NSButtonCell!
-    
+    let helperBundleName = "com.davidtsong.lifeglasshelper"
+    let launchOnStart = UserDefaults.standard.bool(forKey:"Labeling") ?? false
     override func viewDidLoad()
     {
+        launchstartButton.state = launchOnStart ? .on : .off // Set Initial State based on what is in
         let birthdate = UserDefaults.standard.object(forKey: "Birthdate")
         if let birth = birthdate as? Date
         {
@@ -26,6 +28,8 @@ class MenuViewController: NSViewController {
             birthdayText.stringValue = "Birthday is already set"
 //            saveButton.isEnabled = false
         }
+        
+        SMLoginItemSetEnabled(helperBundleName as CFString, launchOnStart)
         
     }
 }
@@ -50,7 +54,7 @@ extension MenuViewController {
     @IBAction func quit(_sender: NSButton) {
          NSApplication.shared.terminate(_sender)
     }
-    @IBAction func textLabelingToggle(_sender:  NSButton)
+    @IBAction func textLabelingToggle(_ sender:  NSButton)
     {
         let appDelegate = NSApp.delegate as! AppDelegate
         switch labelingButton.state {
@@ -64,16 +68,10 @@ extension MenuViewController {
         //Start Timer Need to reset birthdate value
         appDelegate.updateTimer()
     }
-    @IBAction func launchToggle(_sender: NSButton)
+    @IBAction func launchToggle(_ sender: NSButton)
     {
-        let launcherAppId = "com.tiborbodecs.LauncherApplication"
-        switch labelingButton.state {
-        case .on:
-              SMLoginItemSetEnabled(launcherAppId as CFString, true)
-        case .off:
-              SMLoginItemSetEnabled(launcherAppId as CFString, false)
-        default: break
-        }
+        let isAuto = sender.state == .on
+        SMLoginItemSetEnabled(helperBundleName as CFString, isAuto)
     }
     @IBAction func save(_sender: NSButton) {
         let appDelegate = NSApp.delegate as! AppDelegate

@@ -7,11 +7,13 @@
 //
 
 import Cocoa
+import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
     var timer:Timer?
