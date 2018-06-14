@@ -11,16 +11,22 @@
 		632FCFF720D1842E00FF5862 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FCFF620D1842E00FF5862 /* ViewController.swift */; };
 		632FCFF920D1842F00FF5862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 632FCFF820D1842F00FF5862 /* Assets.xcassets */; };
 		632FCFFC20D1842F00FF5862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 632FCFFA20D1842F00FF5862 /* Main.storyboard */; };
+		632FD00820D187CA00FF5862 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD00620D187CA00FF5862 /* MenuViewController.swift */; };
+		632FD00920D187CA00FF5862 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 632FD00720D187CA00FF5862 /* MenuViewController.xib */; };
+		632FD00B20D1913900FF5862 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632FD00A20D1913900FF5862 /* EventMonitor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		632FCFF120D1842E00FF5862 /* Age.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Age.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		632FCFF120D1842E00FF5862 /* LifeGlass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeGlass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		632FCFF420D1842E00FF5862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		632FCFF620D1842E00FF5862 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		632FCFF820D1842F00FF5862 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		632FCFFB20D1842F00FF5862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		632FCFFD20D1842F00FF5862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		632FCFFE20D1842F00FF5862 /* Age.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Age.entitlements; sourceTree = "<group>"; };
+		632FD00620D187CA00FF5862 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		632FD00720D187CA00FF5862 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
+		632FD00A20D1913900FF5862 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +51,7 @@
 		632FCFF220D1842E00FF5862 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				632FCFF120D1842E00FF5862 /* Age.app */,
+				632FCFF120D1842E00FF5862 /* LifeGlass.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +65,9 @@
 				632FCFFA20D1842F00FF5862 /* Main.storyboard */,
 				632FCFFD20D1842F00FF5862 /* Info.plist */,
 				632FCFFE20D1842F00FF5862 /* Age.entitlements */,
+				632FD00620D187CA00FF5862 /* MenuViewController.swift */,
+				632FD00720D187CA00FF5862 /* MenuViewController.xib */,
+				632FD00A20D1913900FF5862 /* EventMonitor.swift */,
 			);
 			path = Age;
 			sourceTree = "<group>";
@@ -66,9 +75,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		632FCFF020D1842E00FF5862 /* Age */ = {
+		632FCFF020D1842E00FF5862 /* LifeGlass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 632FD00120D1842F00FF5862 /* Build configuration list for PBXNativeTarget "Age" */;
+			buildConfigurationList = 632FD00120D1842F00FF5862 /* Build configuration list for PBXNativeTarget "LifeGlass" */;
 			buildPhases = (
 				632FCFED20D1842E00FF5862 /* Sources */,
 				632FCFEE20D1842E00FF5862 /* Frameworks */,
@@ -78,9 +87,9 @@
 			);
 			dependencies = (
 			);
-			name = Age;
+			name = LifeGlass;
 			productName = Age;
-			productReference = 632FCFF120D1842E00FF5862 /* Age.app */;
+			productReference = 632FCFF120D1842E00FF5862 /* LifeGlass.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -98,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 632FCFEC20D1842E00FF5862 /* Build configuration list for PBXProject "Age" */;
+			buildConfigurationList = 632FCFEC20D1842E00FF5862 /* Build configuration list for PBXProject "LifeGlass" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,7 +120,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				632FCFF020D1842E00FF5862 /* Age */,
+				632FCFF020D1842E00FF5862 /* LifeGlass */,
 			);
 		};
 /* End PBXProject section */
@@ -122,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				632FCFF920D1842F00FF5862 /* Assets.xcassets in Resources */,
+				632FD00920D187CA00FF5862 /* MenuViewController.xib in Resources */,
 				632FCFFC20D1842F00FF5862 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				632FCFF720D1842E00FF5862 /* ViewController.swift in Sources */,
+				632FD00820D187CA00FF5862 /* MenuViewController.swift in Sources */,
 				632FCFF520D1842E00FF5862 /* AppDelegate.swift in Sources */,
+				632FD00B20D1913900FF5862 /* EventMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +289,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dtsong.Age;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidtsong.lifeglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -295,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dtsong.Age;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidtsong.lifeglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -304,7 +316,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		632FCFEC20D1842E00FF5862 /* Build configuration list for PBXProject "Age" */ = {
+		632FCFEC20D1842E00FF5862 /* Build configuration list for PBXProject "LifeGlass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				632FCFFF20D1842F00FF5862 /* Debug */,
@@ -313,7 +325,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		632FD00120D1842F00FF5862 /* Build configuration list for PBXNativeTarget "Age" */ = {
+		632FD00120D1842F00FF5862 /* Build configuration list for PBXNativeTarget "LifeGlass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				632FD00220D1842F00FF5862 /* Debug */,
