@@ -688,19 +688,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="336" height="178"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Bt-0F-Fgy">
-                                <rect key="frame" x="106" y="9" width="125" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Quit LifeGlass" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TLw-eH-ULS">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="quitWith_sender:" target="XfG-lQ-9wD" id="Z1z-Oe-w6s"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ykb-Lg-yLH">
-                                <rect key="frame" x="212" y="110" width="70" height="32"/>
+                                <rect key="frame" x="133" y="4" width="70" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pJC-uF-18t">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -711,28 +700,38 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QXh-SS-Geu">
-                                <rect key="frame" x="46" y="120" width="55" height="17"/>
+                                <rect key="frame" x="43" y="127" width="38" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Birthday" id="mm0-dm-HDU">
-                                    <font key="font" metaFont="system"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="🎂🎉" id="mm0-dm-HDU">
+                                    <font key="font" size="13" name="AppleColorEmoji"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HCf-iP-kaP">
+                                <rect key="frame" x="44" y="93" width="38" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="☠️😇" id="yLb-bV-t9l">
+                                    <font key="font" size="13" name="AppleColorEmoji"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xo0-7H-5Pa">
-                                <rect key="frame" x="117" y="114" width="96" height="27"/>
+                                <rect key="frame" x="87" y="127" width="163" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" id="lEh-0E-amr">
+                                <datePickerCell key="cell" borderStyle="bezel" alignment="left" datePickerStyle="textField" id="lEh-0E-amr">
                                     <font key="font" metaFont="system"/>
                                     <date key="date" timeIntervalSinceReferenceDate="0.0">
                                         <!--2001-01-01 00:00:00 +0000-->
                                     </date>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <datePickerElements key="datePickerElements" year="YES" month="YES" day="YES" hour="YES" minute="YES" second="YES"/>
                                 </datePickerCell>
                             </datePicker>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3H9-Xo-31v">
-                                <rect key="frame" x="115" y="88" width="103" height="18"/>
+                                <rect key="frame" x="44" y="61" width="119" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Text Labeling" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Wub-0u-GFI">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -743,7 +742,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shR-ZU-Enn">
-                                <rect key="frame" x="115" y="66" width="119" height="18"/>
+                                <rect key="frame" x="44" y="41" width="119" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Launch on Start" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="Sef-to-2OC">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -753,24 +752,52 @@
                                     <action selector="launchToggle:" target="XfG-lQ-9wD" id="8x8-xB-ETR"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3fp-ce-pDF">
-                                <rect key="frame" x="65" y="45" width="204" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="CNp-Cz-4VQ"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Birthday is not set yet" id="xmp-pY-55u">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Bt-0F-Fgy">
+                                <rect key="frame" x="301" y="153" width="29" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="NSTouchBarRecordStopTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TLw-eH-ULS">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="quitWith_sender:" target="XfG-lQ-9wD" id="Z1z-Oe-w6s"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3ma-f2-hZK">
+                                <rect key="frame" x="88" y="94" width="162" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="77yrs" drawsBackground="YES" id="BVb-gD-1Jg">
+                                    <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0 yrs" negativeFormat="-0 " hasThousandSeparators="NO" thousandSeparator="," id="0X3-pr-b5C">
+                                        <attributedString key="attributedStringForZero">
+                                            <fragment content="0"/>
+                                        </attributedString>
+                                        <real key="minimum" value="0.0"/>
+                                        <decimal key="maximum" value="NaN"/>
+                                    </numberFormatter>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jIc-ER-S5l">
+                                <rect key="frame" x="203" y="61" width="92" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Countdown" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tP3-Kw-wnh">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="countDownButtonToggle:" target="XfG-lQ-9wD" id="CDA-SA-qem"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="birthdayText" destination="3fp-ce-pDF" id="zZO-Zw-WSD"/>
+                        <outlet property="countdownButton" destination="tP3-Kw-wnh" id="WUq-RN-rnL"/>
                         <outlet property="datePicker" destination="Xo0-7H-5Pa" id="7pX-2a-qje"/>
                         <outlet property="labelingButton" destination="3H9-Xo-31v" id="tRE-rU-dYk"/>
                         <outlet property="launchstartButton" destination="Sef-to-2OC" id="0g4-aJ-1TA"/>
+                        <outlet property="lifespanPicker" destination="3ma-f2-hZK" id="Php-0i-Oo8"/>
                         <outlet property="saveButton" destination="ykb-Lg-yLH" id="RUa-yQ-fgK"/>
                     </connections>
                 </viewController>
@@ -779,4 +806,7 @@
             <point key="canvasLocation" x="147" y="609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSTouchBarRecordStopTemplate" width="12" height="30"/>
+    </resources>
 </document>

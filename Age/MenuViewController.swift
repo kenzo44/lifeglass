@@ -12,11 +12,13 @@ import ServiceManagement
 class MenuViewController: NSViewController {
     @IBOutlet var datePicker: NSDatePicker!
     @IBOutlet var saveButton: NSButton!
-    @IBOutlet weak var birthdayText: NSTextField!
     @IBOutlet weak var labelingButton: NSButton!
     @IBOutlet weak var launchstartButton: NSButtonCell!
+    @IBOutlet weak var countdownButton: NSButtonCell!
+    @IBOutlet weak var lifespanPicker: NSTextField!
     let helperBundleName = "com.davidtsong.lifeglasshelper"
     let launchOnStart = UserDefaults.standard.bool(forKey:"Labeling") ?? false
+    
     override func viewDidLoad()
     {
         launchstartButton.state = launchOnStart ? .on : .off // Set Initial State based on what is in
@@ -24,9 +26,24 @@ class MenuViewController: NSViewController {
         if let birth = birthdate as? Date
         {
             datePicker.dateValue = birth
-            
-            birthdayText.stringValue = "Birthday is already set"
+
 //            saveButton.isEnabled = false
+        }
+        let lifespan = UserDefaults.standard.object(forKey: "Lifespan")
+        if let lifespanTemp = lifespan as? Int
+        {
+            lifespanPicker.integerValue = lifespanTemp
+        }
+        else
+        {
+            lifespanPicker.integerValue =  78
+            UserDefaults.standard.set(78, forKey:"Lifespan")
+        }
+        let countdown = UserDefaults.standard.object(forKey: "Countdown")
+        if let countdownTemp = countdown as? Bool
+        {
+            
+            countdownButton.state = (countdownTemp) ? .on : .off
         }
         
         SMLoginItemSetEnabled(helperBundleName as CFString, launchOnStart)
@@ -58,16 +75,31 @@ extension MenuViewController {
     {
         let appDelegate = NSApp.delegate as! AppDelegate
         switch labelingButton.state {
-        case .on:
-            UserDefaults.standard.set(true, forKey:"Labeling")
-        case .off:
-            UserDefaults.standard.set(false, forKey:"Labeling")
-        default: break
+            case .on:
+                UserDefaults.standard.set(true, forKey:"Labeling")
+            case .off:
+                UserDefaults.standard.set(false, forKey:"Labeling")
+            default: break
         }
         appDelegate.stopTimer()
-        //Start Timer Need to reset birthdate value
+
         appDelegate.updateTimer()
     }
+    @IBAction func countDownButtonToggle(_ sender:  NSButton)
+    {
+        let appDelegate = NSApp.delegate as! AppDelegate
+        switch countdownButton.state {
+            case .on:
+                UserDefaults.standard.set(true, forKey:"Countdown")
+            case .off:
+                UserDefaults.standard.set(false, forKey:"Countdown")
+            default: break
+        }
+        appDelegate.stopTimer()
+        
+        appDelegate.updateTimer()
+    }
+    
     @IBAction func launchToggle(_ sender: NSButton)
     {
         let isAuto = sender.state == .on
@@ -76,9 +108,10 @@ extension MenuViewController {
     @IBAction func save(_sender: NSButton) {
         let appDelegate = NSApp.delegate as! AppDelegate
         let birthdate = datePicker.dateValue
-        
-        birthdayText.stringValue = "Birthday is already set"
+        let lifespan = lifespanPicker.integerValue
+
         UserDefaults.standard.set(birthdate, forKey:"Birthdate")
+        UserDefaults.standard.set(lifespan, forKey:"Lifespan")
 //        saveButton.isEnabled = false
 //        if(!appDelegate.timerRunning())
 //        {

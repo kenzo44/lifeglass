@@ -12,7 +12,7 @@ import ServiceManagement
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let statusItem = NSStatusBar.system.statusItem(withLength: 120)
     
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
@@ -24,17 +24,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         if let button = statusItem.button {
 //            button.image = NSImage(named:NSImage.Name("StatusBarButtonImage"))
-            var birthdate = UserDefaults.standard.object(forKey: "Birthdate")
+            let birthdate = UserDefaults.standard.object(forKey: "Birthdate")
             if let birthTemp = birthdate as? Date //Initializes the birth Date object
             {
                 birth = birthTemp
                 birthdayexists = true
                 runTimer()
                 //Start if bday already exists
-            }
-            else
-            {
-                button.title = "Click Here and Set Birthdate" // No birthdate found, then replace with default blank
             }
             button.action = #selector(togglePopover(_:))
         }
@@ -49,6 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 strongSelf.closePopover(sender: event)
             }
         }
+        
     }
     func updateTimer()
     {
@@ -58,7 +55,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             birth = birthTemp
             birthdayexists = true
             runTimer()
-            //Start if bday already exists
         }
     }
     func timerRunning() -> Bool
@@ -67,7 +63,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     func runTimer()
     {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Counting), userInfo: nil, repeats: true)
+        if(UserDefaults.standard.bool(forKey: "Countdown"))
+        {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(CountingDown), userInfo: nil, repeats: true)
+        }
+        else
+        {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(Counting), userInfo: nil, repeats: true)
+        }
     }
     func stopTimer()
     {
@@ -78,27 +81,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //Approach #2 to calculating the difference in time
         var calendar = Calendar.current
         var times = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from:birth, to:Date())
-        
-        //Approach #1 to calculating the difference in time
-        //            let interval = Int(birth.timeIntervalSinceNow) * -1
-        //            let years = interval / 31536000
-        //            let months = (interval % 31536000) / 2628000
-        //            let days = (interval % 31536000 % 2628000) / 86400
-        //            let hours = (interval % 31536000 % 2628000 % 86400) / 3600
-        //            let minutes = (interval % 31536000 % 2628000 % 86400 % 3600) / 60
-        //            let seconds = (interval % 31536000 % 2628000 % 86400 % 3600 % 60)
-        //            statusItem.button?.title = "\(years)y:\(months)m:\(days)d:\(hours)h:\(minutes)m:\(seconds)s"
+ 
         if(UserDefaults.standard.bool(forKey:"Labeling"))
         {
-        statusItem.button?.title = "\(times.year!)y:\(times.month!)m:\(times.day!)d:\(times.hour!)h:\(times.minute!)m:\(times.second!)s"
+            statusItem.button?.title = "\(times.year!)y:\(times.month!)m:\(times.day!)d:\(times.hour!)h:\(times.minute!)m:\(times.second!)s"
+            statusItem.length = 190
         }
         else
         {
             statusItem.button?.title = "\(times.year!):\(times.month!):\(times.day!):\(times.hour!):\(times.minute!):\(times.second!)"
+            statusItem.length = 120
         }
+    }
+    @objc func CountingDown()
+    {
+        let calendar = Calendar.current
+        let lifespan = UserDefaults.standard.integer(forKey: "Lifespan")
+        var timeInterval = DateComponents()
+        timeInterval.year = lifespan
+        let deathYear = calendar.date(byAdding: timeInterval, to: birth)!
+        var age = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from:Date(), to:deathYear)
         
         
-
+        if(UserDefaults.standard.bool(forKey:"Labeling"))
+        {
+            statusItem.button?.title = "\(age.year!)y:\(age.month!)m:\(age.day!)d:\(age.hour!)h:\(age.minute!)m:\(age.second!)s"
+            statusItem.length = 170
+        }
+        else
+        {
+            statusItem.button?.title = "\(age.year!):\(age.month!):\(age.day!):\(age.hour!):\(age.minute!):\(age.second!)"
+            statusItem.length = 120
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
